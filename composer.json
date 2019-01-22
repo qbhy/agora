@@ -1,0 +1,18 @@
+{
+    "name": "96qbhy/agora",
+    "description": "声网php-SDK",
+    "require": {
+        "hanson/foundation-sdk": "^3.0"
+    },
+    "authors": [
+        {
+            "name": "qbhy",
+            "email": "572490755@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "\\Qbhy\\Agora\\": "src"
+        }
+    }
+}
