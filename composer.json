@@ -2,7 +2,9 @@
     "name": "96qbhy/agora",
     "description": "声网php-SDK",
     "require": {
-        "hanson/foundation-sdk": "^3.0"
+        "hanson/foundation-sdk": "^3.0",
+        "php": ">=7.1",
+        "ext-json": ">=1.0"
     },
     "authors": [
         {
@@ -12,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "\\Qbhy\\Agora\\": "src"
+            "Qbhy\\Agora\\": "src"
         }
     }
 }

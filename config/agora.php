@@ -6,5 +6,7 @@
  */
 
 return [
-    'debug' => true,
+    'debug'  => true,
+    'id'     => 'your id',
+    'secret' => 'your secret',
 ];
