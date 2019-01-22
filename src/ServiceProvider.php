@@ -14,8 +14,14 @@ class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $pimple)
     {
-        $pimple['project'] = function (Agora $agora) {
+        $pimple['project']      = function (Agora $agora) {
             return new Project($agora);
+        };
+        $pimple['usage']        = function (Agora $agora) {
+            return new Usage($agora);
+        };
+        $pimple['kicking_rule'] = function (Agora $agora) {
+            return new KickingRule($agora);
         };
     }
 
