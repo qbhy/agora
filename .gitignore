@@ -2,3 +2,4 @@
 /.idea/
 /*.php
 composer.lock
+/test
