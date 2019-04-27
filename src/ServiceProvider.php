@@ -9,6 +9,7 @@ namespace Qbhy\Agora;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
+use Qbhy\Agora\Auth\SimpleTokenBuilder;
 
 class ServiceProvider implements ServiceProviderInterface
 {
@@ -22,6 +23,9 @@ class ServiceProvider implements ServiceProviderInterface
         };
         $pimple['kicking_rule'] = function (Agora $agora) {
             return new KickingRule($agora);
+        };
+        $pimple['token'] = function (Agora $agora) {
+            return new SimpleTokenBuilder($agora);
         };
     }
 

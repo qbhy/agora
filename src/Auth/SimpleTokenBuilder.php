@@ -2,7 +2,10 @@
 
 namespace Qbhy\Agora\Auth;
 
-class SimpleTokenBuilder
+use Qbhy\Agora\Agora;
+use Qbhy\Agora\Api;
+
+class SimpleTokenBuilder extends Api
 {
     const AttendeePrivileges = array(
         AccessToken::Privileges["kJoinChannel"]        => 0,
@@ -54,13 +57,13 @@ class SimpleTokenBuilder
 
     public $token;
 
-    public function __construct($appID, $appCertificate, $channelName, $uid)
+    public function __construct(Agora $app)
     {
+        parent::__construct($app);
+
         $this->token                 = new AccessToken();
-        $this->token->appID          = $appID;
-        $this->token->appCertificate = $appCertificate;
-        $this->token->channelName    = $channelName;
-        $this->token->setUid($uid);
+        $this->token->appID          = $app->getConfig('id');
+        $this->token->appCertificate = $app->getConfig('secret');
     }
 
     public function initWithToken($token, $appCertificate, $channel, $uid)
@@ -86,11 +89,10 @@ class SimpleTokenBuilder
         unset($this->token->message->privileges[$privilege]);
     }
 
-    public function buildToken()
+    public function buildToken($channelName, $uid)
     {
+        $this->token->channelName = $channelName;
+        $this->token->setUid($uid);
         return $this->token->build();
     }
 }
-
-
-?>
