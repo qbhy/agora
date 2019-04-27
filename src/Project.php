@@ -29,7 +29,7 @@ class Project extends Api
      *
      * @return array
      */
-    public function find($id, $name = null, bool $first = true)
+    public function find($id, $name = null, $first = true)
     {
         $result = $this->request('GET', '/project', compact('id', 'name'));
 
